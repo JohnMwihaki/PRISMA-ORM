@@ -36,6 +36,23 @@ Models represent database tables in your Prisma schema. Each model defines the s
 
 - **Attributes:** Add additional metadata to fields and models using attributes like @id, @default, @relation.
 
+**Field Modifiers**
+
+They are used to indicate:
+
+ - If a field is optiona ```?``` or whether a field can contain multiple values ```[]```
+
+*example*
+```
+model Product {
+  id                 Int    @id @default(autoincrement())
+  productTitle       String @map("product_title")
+  productDescription String @map("product_description")
+  productCost        Float  @map("product_cost")
+  unitsLeft          Int    @map("units_left")
+  @@map("products_table")
+}
+```
 
 ## How do Prisma Works?
 
